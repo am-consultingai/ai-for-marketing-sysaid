@@ -1,0 +1,6 @@
+{
+  "name": "AI for Marketing Workshop",
+  "description": "An interactive, visual invitation and pre-work guide for the SysAid AI for Marketing workshop on the 30th.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

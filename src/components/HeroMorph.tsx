@@ -4,20 +4,8 @@
  */
 
 import { useState, useEffect, useCallback } from "react";
-import { Play, RotateCcw, Video, FileText, Settings, Code, Sparkles, CheckCircle } from "lucide-react";
+import { Play, RotateCcw, Video, FileText, Settings, Code, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-
-interface Waypoint {
-  key: "brief" | "script" | "format" | "deliverable";
-  label: string;
-}
-
-const WAYPOINTS: Waypoint[] = [
-  { key: "brief", label: "1. Prompt Brief" },
-  { key: "script", label: "2. Generate Script" },
-  { key: "format", label: "3. Structure Format" },
-  { key: "deliverable", label: "4. Finished Asset" },
-];
 
 const EXAMPLES = [
   {
@@ -165,60 +153,6 @@ export default function HeroMorph() {
         <div className="lg:col-span-5 flex flex-col justify-between bg-white dark:bg-brand-ink/10 rounded-2xl p-5 border border-brand-line/50 shadow-sm min-h-[360px]">
           <div>
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Pipeline Workflow</h4>
-            
-            {/* Visual Process Waypoint Stack - Preserving named steps to teach process */}
-            <div className="space-y-4">
-              {WAYPOINTS.map((wp) => {
-                const isActive = currentWaypoint === wp.key;
-                const isPassed = !useStaticFallback && (
-                  (wp.key === "brief" && currentWaypoint !== "brief") ||
-                  (wp.key === "script" && (currentWaypoint === "format" || currentWaypoint === "deliverable")) ||
-                  (wp.key === "format" && currentWaypoint === "deliverable")
-                );
-
-                return (
-                  <div 
-                    key={wp.key}
-                    className={`flex items-center gap-3 p-3 rounded-xl border transition-all duration-300 ${
-                      isActive 
-                        ? "bg-brand-primary/5 border-brand-primary/50 translate-x-1" 
-                        : isPassed 
-                        ? "bg-emerald-50/40 border-emerald-200" 
-                        : "bg-transparent border-transparent"
-                    }`}
-                  >
-                    <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-                      isActive 
-                        ? "bg-brand-primary text-white scale-110 shadow-md ring-4 ring-brand-primary/20" 
-                        : isPassed 
-                        ? "bg-emerald-500 text-white" 
-                        : "bg-gray-100 text-gray-400"
-                    }`}>
-                      {isPassed ? <CheckCircle className="w-4 h-4" /> : wp.key === "brief" ? "1" : wp.key === "script" ? "2" : wp.key === "format" ? "3" : "4"}
-                    </div>
-                    <div>
-                      <p className={`text-xs font-bold ${isActive ? "text-brand-primary" : isPassed ? "text-emerald-800" : "text-gray-400"}`}>
-                        {wp.label}
-                      </p>
-                      <p className="text-[10px] text-gray-500 font-mono">
-                        {wp.key === "brief" && "Type short raw campaign parameters"}
-                        {wp.key === "script" && "Multi-angle copywriting script formulations"}
-                        {wp.key === "format" && "Metadata structuring and asset specs formatting"}
-                        {wp.key === "deliverable" && "High-quality client-ready production file"}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="mt-6 pt-4 border-t border-brand-line/40">
-            <span className="text-[10px] font-mono text-gray-400 block mb-1">PROMPT INGESTION:</span>
-            <div className="bg-gray-50 dark:bg-brand-ink/20 p-3 rounded-lg border border-brand-line/30 font-mono text-xs text-brand-ink">
-              {typedBrief}
-              {isTyping && <span className="animate-pulse font-bold text-brand-primary">|</span>}
-            </div>
           </div>
         </div>
 

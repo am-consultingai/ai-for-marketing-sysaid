@@ -6,6 +6,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight, HelpCircle, Flame, Check, Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import UgcAdReveal from "./UgcAdReveal";
 
 const FIVE_RULES = [
   { text: "Do it twice, make it a skill", highlight: true },
@@ -232,6 +233,9 @@ export default function TheShift() {
             </div>
 
           </div>
+
+          {/* Prompt → Beam → UGC video variants signature demo */}
+          <UgcAdReveal />
 
           {/* Five Rules List */}
           <div className="mt-16 pt-12 border-t border-brand-line/50">

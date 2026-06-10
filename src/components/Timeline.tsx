@@ -51,9 +51,9 @@ export default function Timeline() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-xs font-mono uppercase tracking-wider text-brand-primary font-bold px-3 py-1 bg-brand-primary/10 rounded-full border border-brand-primary/20">The Rhythm</span>
+          <span className="text-xs font-mono uppercase tracking-wider text-brand-primary font-bold px-3 py-1 bg-brand-primary/10 rounded-full border border-brand-primary/20">The Agenda</span>
           <h2 id="how-the-day-flows-h2" className="text-2xl md:text-4xl font-extrabold font-display tracking-tight text-brand-ink mt-4 leading-tight">
-            The rhythm: build, share, build.
+            The agenda — Let's roll up our sleeves.
           </h2>
           <p className="mt-4 text-base text-gray-500 font-sans">
             This is the agenda of the day.

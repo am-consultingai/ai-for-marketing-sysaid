@@ -3,9 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Flame, Sparkles, Send, ArrowDown, ExternalLink } from "lucide-react";
+import { Flame, Sparkles, Send, ArrowDown, ExternalLink, ArrowRight, Linkedin } from "lucide-react";
 import ProgressRail from "./components/ProgressRail";
-import HeroMorph from "./components/HeroMorph";
 import TheShift from "./components/TheShift";
 import WhereYouFit from "./components/WhereYouFit";
 import FindYourBuild from "./components/FindYourBuild";
@@ -15,9 +14,11 @@ import ProcessChecker from "./components/ProcessChecker";
 import PhasePath from "./components/PhasePath";
 import Countdown from "./components/Countdown";
 import TypingEffect from "./components/TypingEffect";
+import RobotExplosion from "./components/RobotExplosion";
 
 const SECTIONS = [
   { id: "hero", label: "Header" },
+  { id: "the-anatomy", label: "The Anatomy" },
   { id: "find-your-build", label: "Four Builds" },
   { id: "the-shift", label: "It's a Hackathon" },
   { id: "how-the-day-flows", label: "The Rhythm" },
@@ -37,7 +38,31 @@ export default function App() {
 
   return (
     <div className="min-h-screen Selection:bg-brand-primary/20 bg-brand-surface text-brand-ink relative">
-      
+
+      {/* 0 · TOP LOGO BAR — AM Consulting × SysAid (always visible) */}
+      <div className="w-full border-b border-brand-line/60 bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-3 sm:gap-5">
+            <a
+              href="https://www.amconsultingai.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="AM Consulting — Tech Strategy Made Easy"
+              className="shrink-0 transition-opacity hover:opacity-80"
+            >
+              <img src="/am-logo.png" alt="AM Consulting" className="h-7 sm:h-9 w-auto" />
+            </a>
+            <span className="h-7 w-px bg-brand-line" aria-hidden="true" />
+            <div className="flex items-center rounded-xl bg-brand-ink px-3 py-2 shadow-sm">
+              <img src="/sysaid-logo.svg" alt="SysAid" className="h-5 sm:h-6 w-auto" />
+            </div>
+          </div>
+          <span className="hidden sm:inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest text-brand-primary font-bold px-3 py-1.5 bg-brand-primary/10 rounded-full border border-brand-primary/25">
+            For SysAid Employees
+          </span>
+        </div>
+      </div>
+
       {/* Side Dot Progress Rail */}
       <ProgressRail sections={SECTIONS} />
 
@@ -92,11 +117,11 @@ export default function App() {
             🛡️ Everything you're looking at was built with the tools you'll use on the 30th.
           </div>
 
-          {/* Signature 1: Hero Prompt to Output morph box */}
-          <HeroMorph />
-
         </div>
       </header>
+
+      {/* 1.5 · THE ANATOMY OF AN AGENT (exploded robot) */}
+      <RobotExplosion />
 
       {/* 2 · FOUR BUILDS */}
       <FindYourBuild />
@@ -169,6 +194,72 @@ export default function App() {
 
         </div>
       </div>
+
+      {/* 9 · YOUR FACILITATOR */}
+      <section
+        id="about"
+        className="relative py-20 md:py-24 overflow-hidden bg-brand-ink text-white border-t border-brand-line/45"
+        role="contentinfo"
+      >
+        {/* Decorative center line */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-white/10 to-transparent" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12 lg:gap-20 relative z-10">
+          <div className="flex-shrink-0 flex flex-col items-center">
+            <div className="w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full border-2 border-brand-accent/40 p-2 mb-6 shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-all hover:border-brand-accent/70 group">
+              <img
+                src="/avishay.png"
+                alt="Avishay Meron"
+                className="w-full h-full object-cover rounded-full bg-slate-800 grayscale transition-all group-hover:grayscale-0"
+              />
+            </div>
+            <h3 className="text-2xl font-extrabold font-display mb-1">Avishay Meron</h3>
+            <p className="text-slate-300 font-bold text-xs uppercase tracking-widest font-mono mb-6">CEO &amp; Founder, AM Consulting</p>
+            <a
+              href="https://www.linkedin.com/in/avishay-meron/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-bold text-slate-300 hover:text-white transition-all bg-white/5 border border-white/10 px-5 py-2.5 rounded-lg uppercase tracking-widest font-mono hover:bg-white/10"
+            >
+              <Linkedin className="w-4 h-4 text-brand-accent" />
+              LinkedIn
+            </a>
+          </div>
+
+          <div className="flex-1">
+            <div className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 font-mono mb-4">Your Facilitator</div>
+
+            <p className="text-lg text-slate-300 leading-relaxed mb-6">
+              Avishay Meron has been "taming" Artificial Intelligence for over a decade, bringing rich and unique experience to the forefront of technology. As the CEO and Founder of AM Consulting, Avishay guides organizations through the adoption and implementation of AI solutions.
+            </p>
+            <p className="text-lg text-slate-300 leading-relaxed mb-8">
+              With over 10 patents in the field of AI, he specializes in making complex AI concepts accessible to any audience, transforming technology into a practical everyday work partner.
+            </p>
+            <a
+              href="mailto:office@amconsultingai.com?subject=Request%20for%20a%20tailored%20keynote/workshop&body=Hi%20AM%20Consulting%20team%2C%0A%0AI'd%20love%20to%20hop%20on%20a%20brief%20call%20to%20provide%20more%20context%20on%20my%20specific%20needs%20and%20explore%20potential%20collaboration.%0A%0ACould%20you%20please%20suggest%20three%20available%20time%20slots%20for%20a%20Zoom%20call%20sometime%20next%20week%3F%0A%0ABest%20regards%2C%0A%5BYour%20Name%5D"
+              className="inline-flex items-center gap-2 text-brand-accent hover:text-white font-bold transition-all group text-sm tracking-wide"
+            >
+              Request a tailored keynote <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+        </div>
+
+        {/* Footer credit */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
+          <a
+            href="https://www.amconsultingai.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0"
+            aria-label="AM Consulting"
+          >
+            <img src="/am-logo.png" alt="AM Consulting" className="h-7 brightness-0 invert opacity-60 hover:opacity-100 transition-opacity" />
+          </a>
+          <div className="text-xs text-slate-400 font-bold uppercase tracking-[0.2em] font-mono">
+            © 2026 AM Consulting Group
+          </div>
+        </div>
+      </section>
 
     </div>
   );

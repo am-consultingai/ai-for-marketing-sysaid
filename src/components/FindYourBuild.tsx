@@ -217,7 +217,7 @@ export default function FindYourBuild() {
                     STACK
                   </div>
                   
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+                  <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 relative z-10">
                     <div className="text-left space-y-1">
                       <div className="flex items-center gap-2">
                         <span className="flex h-2.5 w-2.5 shrink-0 rounded-full bg-brand-primary animate-ping" />
@@ -233,7 +233,7 @@ export default function FindYourBuild() {
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 shrink-0 items-center justify-start md:justify-end">
+                    <div className="flex flex-wrap gap-2 items-start justify-start md:justify-end md:max-w-[44%]">
                       {activeProject.tools.map((tool) => (
                         <div 
                           key={tool} 
@@ -398,17 +398,17 @@ export default function FindYourBuild() {
                           </div>
                           <div className={`p-4 rounded-xl border bg-gradient-to-br font-mono text-xs min-h-[100px] flex items-center justify-center text-center transition-all duration-300 ${
                             isOutputTyping || isDone
-                              ? "bg-brand-primary/5 border-emerald-250 text-emerald-900 font-semibold" 
+                              ? "bg-brand-primary/5 border-emerald-250 text-emerald-900 font-semibold"
                               : "bg-gray-50 border-gray-150 text-gray-300 italic"
                           }`}>
                             {isOutputTyping ? (
                               <span>
-                                "<TypedText 
-                                  text={outputText} 
-                                  speed={20} 
+                                "<TypedText
+                                  text={outputText}
+                                  speed={20}
                                   onComplete={() => {
                                     setPhase('done');
-                                  }} 
+                                  }}
                                 />"
                               </span>
                             ) : isDone ? (

@@ -20,7 +20,7 @@ const SECTIONS = [
   { id: "hero", label: "Header" },
   { id: "the-anatomy", label: "The Anatomy" },
   { id: "find-your-build", label: "Four Builds" },
-  { id: "the-shift", label: "It's a Hackathon" },
+  { id: "the-shift", label: "It's a Build Sprint" },
   { id: "how-the-day-flows", label: "The Rhythm" },
   { id: "what-you-walk-away-with", label: "The Payoff" },
   { id: "come-prepared", label: "Two Things to Bring" },
@@ -126,7 +126,7 @@ export default function App() {
       {/* 2 · FOUR BUILDS */}
       <FindYourBuild />
 
-      {/* 3 · IT'S A HACKATHON. YOU'LL BUILD, NOT WATCH */}
+      {/* 3 · IT'S A BUILD SPRINT. YOU'LL BUILD, NOT WATCH */}
       <TheShift />
 
       {/* 4 · THE RHYTHM: BUILD, SHARE, BUILD */}

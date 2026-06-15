@@ -93,7 +93,7 @@ export default function StatStrip() {
           <div className="lg:col-span-7">
             <span className="text-xs font-mono uppercase tracking-wider text-brand-primary font-bold px-3 py-1 bg-brand-primary/10 rounded-full border border-brand-primary/20">The Workshop Format</span>
             <h2 id="the-day-h2" className="text-2xl md:text-4xl font-extrabold font-display tracking-tight text-brand-ink mt-4 leading-tight">
-              It's a hackathon. You'll build, not watch.
+              It's a build sprint. You'll build, not watch.
             </h2>
           </div>
           <div className="lg:col-span-5">

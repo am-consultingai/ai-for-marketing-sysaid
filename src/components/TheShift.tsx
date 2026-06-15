@@ -67,7 +67,7 @@ export default function TheShift() {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="text-xs font-mono uppercase tracking-wider text-brand-primary font-bold px-3 py-1 bg-brand-primary/10 rounded-full border border-brand-primary/20">Active Action</span>
           <h2 id="the-shift-h2" className="text-2xl md:text-4xl font-extrabold font-display tracking-tight text-brand-ink mt-4 leading-tight">
-            It's a hackathon. You'll build, not watch.
+            It's a build sprint. You'll build, not watch.
           </h2>
           <p className="mt-4 text-base md:text-lg text-gray-500 font-sans leading-relaxed">
             We're not here to watch slides or passive product demos. You teach Claude a process you already do manually today, compile it once, and it runs for you over and over.

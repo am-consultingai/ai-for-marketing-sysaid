@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Clock, BookOpen, AlertCircle, HelpCircle, Flame, CheckSquare, Award } from "lucide-react";
 import { AGENDA } from "../data";
 import { AgendaBlock } from "../types";
+import AgendaAnimation from "./AgendaAnimation";
 
 export default function Timeline() {
   const [activeBlockId, setActiveBlockId] = useState<string>("welcome");
@@ -149,13 +150,16 @@ export default function Timeline() {
 
             <div className="mt-6 pt-4 border-t border-brand-line/45 text-[10px] font-mono text-gray-400 flex items-center justify-between">
               <span>ACTIVE SCHEDULE INTEGRAL</span>
-              <span>TOTAL DURATION: {totalMinutes}m (~6.5 HOURS)</span>
+              <span>TOTAL DURATION: {totalMinutes}m (~7.5 HOURS)</span>
             </div>
           </div>
 
           {/* Right Panel: Focused Block Details Card (5 cols) */}
           <div className="lg:col-span-5 flex flex-col justify-between bg-brand-ink text-gray-100 rounded-3xl p-6 md:p-8 border border-gray-800 shadow-xl min-h-[460px]">
             <div>
+              {/* Essence animation for the focused block */}
+              <AgendaAnimation blockId={focusedBlock.id} />
+
               {/* Card Meta Indicator */}
               <div className="flex items-center justify-between border-b border-gray-800 pb-4 mb-6">
                 <span className="text-[10px] font-mono text-brand-accent tracking-wider uppercase font-bold">Selected Schedule Detail</span>

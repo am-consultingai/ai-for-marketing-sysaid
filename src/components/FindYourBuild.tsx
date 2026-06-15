@@ -428,7 +428,7 @@ export default function FindYourBuild() {
                 <div className="bg-brand-ink text-white rounded-2xl p-5 border border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-left">
                     <span className="text-[9px] font-mono bg-emerald-500 text-white px-2 py-0.5 rounded font-bold uppercase tracking-widest">
-                      ESTIMATED HACKATHON PAYOFF
+                      ESTIMATED BUILD PAYOFF
                     </span>
                     <h4 className="text-base font-extrabold font-display tracking-tight text-white mt-1 leading-tight">
                       {activeProject.payoff}

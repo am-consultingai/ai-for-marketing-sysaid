@@ -116,15 +116,15 @@ export default function FindYourBuild() {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-xs font-mono uppercase tracking-wider text-brand-primary font-bold px-3 py-1 bg-brand-primary/10 rounded-full border border-brand-primary/20">The Centerpiece</span>
           <h2 id="find-your-build-h2" className="text-2xl md:text-4xl font-extrabold font-display tracking-tight text-brand-ink mt-4 leading-tight">
-            Four builds. Pick yours.
+            Five builds. Pick yours.
           </h2>
           <p className="mt-4 text-base md:text-lg text-gray-500 font-sans leading-relaxed">
-            Choose a campaign challenge based on your Monday objectives. Click any card to load the real-time automated workflow simulator frame & toolchain.
+            Choose a challenge based on your Monday objectives. Click any card to load the real-time automated workflow simulator frame & toolchain.
           </p>
         </div>
 
-        {/* The four cards split matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8" id="workflow-cards-container">
+        {/* The build cards split matrix */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-8" id="workflow-cards-container">
           {PROJECTS.map((project) => {
             return (
               <div
@@ -280,6 +280,20 @@ export default function FindYourBuild() {
                         <p className={`text-[11px] font-bold mt-1 truncate ${isActive ? "text-brand-ink" : "text-gray-500"}`}>
                           {step.name}
                         </p>
+                        {/* Single tool transition for this step: input tool → output tool */}
+                        <div className="flex items-center gap-1 mt-1.5 text-[8px] font-mono font-bold leading-none">
+                          <span className={`px-1.5 py-0.5 rounded ${
+                            isActive ? "bg-brand-primary/15 text-brand-primary" : isPassed ? "bg-emerald-100 text-emerald-700" : "bg-gray-100 text-gray-400"
+                          }`}>
+                            {step.inputTool}
+                          </span>
+                          <span className={isActive ? "text-brand-primary" : "text-gray-300"}>→</span>
+                          <span className={`px-1.5 py-0.5 rounded ${
+                            isActive ? "bg-brand-primary/15 text-brand-primary" : isPassed ? "bg-emerald-100 text-emerald-700" : "bg-gray-100 text-gray-400"
+                          }`}>
+                            {step.outputTool}
+                          </span>
+                        </div>
                       </button>
                     );
                   })}
@@ -320,7 +334,9 @@ export default function FindYourBuild() {
                             }`}>
                               Artifact Going In (Input)
                             </span>
-                            <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest block mb-1.5 leading-none mt-1">Source Fuel</span>
+                            <span className="text-[10px] font-mono text-gray-400 uppercase tracking-widest block mb-1.5 leading-none mt-1">
+                              From <span className="text-brand-ink font-bold">{activeProject.chain[currentStep - 1]?.inputTool}</span>
+                            </span>
                             <h4 className="text-sm font-bold text-brand-ink mb-3 truncate">
                               {activeProject.chain[currentStep - 1]?.name} Ingestion
                             </h4>
@@ -369,6 +385,18 @@ export default function FindYourBuild() {
                             {isBeamActive ? "⚡ CONVERTING..." : "CONVEYING"}
                           </span>
 
+                          {/* The user prompt that drives this step's transformation */}
+                          <div className="mt-3 w-full max-w-[150px] flex flex-col items-center gap-1">
+                            <span className="text-[8px] font-mono uppercase tracking-widest text-gray-400">+ Your Prompt</span>
+                            <p className={`text-[9px] leading-snug italic text-center px-2 py-1.5 rounded-lg border transition-colors duration-300 ${
+                              isBeamActive
+                                ? "bg-brand-primary/10 border-brand-primary/40 text-brand-ink"
+                                : "bg-gray-50 border-gray-200 text-gray-500"
+                            }`}>
+                              "{activeProject.chain[currentStep - 1]?.prompt}"
+                            </p>
+                          </div>
+
                           {/* Fast glowing beam indicator */}
                           <div className="w-full max-w-[100px] h-2 bg-gray-100 rounded-full mt-3 relative overflow-hidden hidden md:block border border-gray-200 shadow-inner">
                             {isBeamActive && (
@@ -391,7 +419,9 @@ export default function FindYourBuild() {
                             }`}>
                               Artifact Coming Out (Output)
                             </span>
-                            <span className="text-[10px] font-mono text-brand-primary uppercase tracking-widest block mb-1.5 leading-none mt-1">Target Result</span>
+                            <span className="text-[10px] font-mono text-brand-primary uppercase tracking-widest block mb-1.5 leading-none mt-1">
+                              In <span className="font-bold">{activeProject.chain[currentStep - 1]?.outputTool}</span>
+                            </span>
                             <h4 className="text-sm font-bold text-brand-primary mb-3 truncate">
                               Completed Step {currentStep} Deliverable
                             </h4>

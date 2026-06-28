@@ -34,8 +34,11 @@ export interface Layer {
 export interface Subprocess {
   stepNumber: number;
   name: string;
-  input: string;
-  output: string;
+  inputTool: string; // the tool the input artifact comes from
+  input: string; // the input artifact
+  prompt: string; // the user prompt added at this step
+  outputTool: string; // the tool the output lands in (= next step's inputTool)
+  output: string; // the output artifact (becomes the next step's input)
 }
 
 export interface Project {
